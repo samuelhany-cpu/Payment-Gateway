@@ -1,0 +1,123 @@
+body {
+  background: #181a1b;
+  color: #f5f6fa;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+nav {
+  background: #23272a;
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+nav a {
+  color: #f5f6fa;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+nav a:hover {
+  color: #00b894;
+}
+
+h2, h3 {
+  color: #f5f6fa;
+}
+
+/* Product Cards */
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.product-card {
+  background: #23272a;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  padding: 1rem;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.product-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+.product-card button {
+  background: #00b894;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+.product-card button:hover {
+  background: #019875;
+}
+
+/* Cart & Checkout */
+.cart-list, .checkout-list {
+  background: #23272a;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 500px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.cart-list ul, .checkout-list ul {
+  list-style: none;
+  padding: 0;
+}
+.cart-list li, .checkout-list li {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart-list button, .checkout-list button {
+  background: #e17055;
+  color: #fff;
+  border: none;
+  padding: 0.3rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.cart-list button:hover, .checkout-list button:hover {
+  background: #d35400;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input, .StripeElement {
+  background: #23272a;
+  color: #f5f6fa;
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding: 0.7rem;
+  font-size: 1rem;
+}
+
+::-webkit-input-placeholder { color: #888; }
+::-moz-placeholder { color: #888; }
+:-ms-input-placeholder { color: #888; }
+::placeholder { color: #888; } 
