@@ -16,7 +16,7 @@ const CheckoutPage = ({ cart, user, onOrderComplete }) => {
     setError('');
     try {
       // 1. Create payment intent
-      const paymentRes = await axios.post(`${process.env.REACT_APP_API_URL}/api/checkout/create-payment-intent`, {
+      const paymentRes = await axios.post(`${process.env.REACT_APP_API_URL}api/checkout/create-payment-intent`, {
         amount: total,
         currency: 'usd',
       });
