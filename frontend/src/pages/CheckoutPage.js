@@ -16,7 +16,7 @@ const CheckoutPage = ({ cart, user, onOrderComplete }) => {
     setError('');
     try {
       // 1. Create payment intent
-      const paymentRes = await axios.post('http://localhost:5000/api/checkout/create-payment-intent', {
+      const paymentRes = await axios.post(`${process.env.REACT_APP_API_URL}/api/checkout/create-payment-intent`, {
         amount: total,
         currency: 'usd',
       });
@@ -35,7 +35,7 @@ const CheckoutPage = ({ cart, user, onOrderComplete }) => {
       }
       if (result.paymentIntent.status === 'succeeded') {
         // 3. Create order in backend
-        await axios.post('http://localhost:5000/api/orders', {
+        await axios.post(`${process.env.REACT_APP_API_URL}/api/orders`, {
           user,
           items: cart.map(item => ({ product: item.product._id, quantity: item.quantity })),
           total,
