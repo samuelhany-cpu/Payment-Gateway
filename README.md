@@ -74,204 +74,45 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 A full-stack E-commerce application with Stripe payment integration, built with Node.js, Express, MongoDB, and React.
 
 ## 🚀 Features
-
-- **Product Management**: Add, view, and manage products
-- **Shopping Cart**: Add/remove items, view cart contents
-- **Secure Payments**: Stripe integration for payment processing
-- **Order Management**: Complete order flow with confirmation
-- **Dark Mode UI**: Modern, clean dark theme
-- **Responsive Design**: Works on desktop and mobile
+- Product Management
+- Shopping Cart
+- Secure Payments (Stripe)
+- Order Management
+- Responsive Design
 
 ## 🛠️ Tech Stack
+- **Backend:** Node.js, Express, MongoDB, Stripe (Deploy to Render)
+- **Frontend:** React (Deploy to Vercel)
 
-### Backend
-- **Node.js** - Runtime environment
-- **Express.js** - Web framework
-- **MongoDB** - Database (MongoDB Atlas)
-- **Mongoose** - ODM for MongoDB
-- **Stripe** - Payment processing
+## 🌐 Deployment Instructions
 
-### Frontend
-- **React** - UI library
-- **React Router** - Client-side routing
-- **Axios** - HTTP client
-- **Stripe.js** - Payment form integration
+### Backend (Render)
+1. Go to [Render](https://render.com/) and create a new Web Service.
+2. Connect your GitHub repo and select the `backend` folder as the root.
+3. Set build command: `npm install`
+4. Set start command: `npm start`
+5. Add environment variables (MongoDB URI, Stripe keys, etc).
+6. Deploy and copy your Render backend URL (e.g., `https://your-backend-service.onrender.com`).
 
-## 📋 Prerequisites
+### Frontend (Vercel)
+1. Go to [Vercel](https://vercel.com/) and import your GitHub repo.
+2. Set the project root to `frontend`.
+3. In the frontend folder, create a `.env` file:
+   ```
+   REACT_APP_API_URL=https://your-backend-service.onrender.com
+   ```
+4. Deploy!
 
-- Node.js (v14 or higher)
-- MongoDB Atlas account
-- Stripe account
-
-## 🔧 Installation
-
-### 1. Clone the repository
-```bash
-git clone <your-repo-url>
-cd Payment-Gateway
-```
-
-### 2. Backend Setup
-```bash
-cd backend
-npm install
-```
-
-### 3. Environment Variables
-Create a `.env` file in the `backend` directory:
-```env
-MONGODB_URI="your_mongodb_atlas_connection_string"
-STRIPE_SECRET_KEY="your_stripe_secret_key"
-STRIPE_PUBLISHABLE_KEY="your_stripe_publishable_key"
-```
-
-### 4. Frontend Setup
-```bash
-cd frontend
-npm install
-```
-
-### 5. Update Stripe Keys
-In `frontend/src/App.js`, replace:
-```javascript
-const stripePromise = loadStripe('your_stripe_publishable_key');
-```
-
-## 🚀 Running the Application
-
-### Development Mode
-
-1. **Start Backend Server**
-```bash
-cd backend
-npm start
-```
-Server runs on: http://localhost:5000
-
-2. **Start Frontend Development Server**
-```bash
-cd frontend
-npm start
-```
-App runs on: http://localhost:3000
-
-### Production Build
-
-1. **Build Frontend**
-```bash
-cd frontend
-npm run build
-```
-
-2. **Deploy Backend**
-Deploy the backend to a hosting service (Heroku, Vercel, Railway, etc.)
-
-## 🧪 Testing
-
-### Stripe Test Cards
-- **Success**: `4242 4242 4242 4242`
-- **Declined**: `4000 0000 0000 0002`
-- **Insufficient Funds**: `4000 0000 0000 9995`
-
-### API Endpoints
-- `GET /api/products` - Get all products
-- `POST /api/products` - Add new product
-- `GET /api/cart?user=<user>` - Get user's cart
-- `POST /api/cart/add` - Add item to cart
-- `POST /api/cart/remove` - Remove item from cart
-- `POST /api/orders` - Create new order
-- `GET /api/orders?user=<user>` - Get user's orders
-- `POST /api/checkout/create-payment-intent` - Create Stripe payment intent
-
-## 🌐 Deployment
-
-### Frontend (GitHub Pages)
-1. Update `package.json` in frontend:
-```json
-{
-  "homepage": "https://yourusername.github.io/your-repo-name",
-  "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  }
-}
-```
-
-2. Install gh-pages:
-```bash
-cd frontend
-npm install --save-dev gh-pages
-```
-
-3. Deploy:
-```bash
-npm run deploy
-```
-
-### Backend (Heroku/Vercel/Railway)
-1. Create account on your preferred platform
-2. Connect your GitHub repository
-3. Set environment variables
-4. Deploy
+## 🔗 Connecting Frontend and Backend
+- The React app will use the `REACT_APP_API_URL` to make API requests to the backend on Render.
 
 ## 📁 Project Structure
+- backend/ (Node.js/Express API)
+- frontend/ (React app)
 
-```
-Payment-Gateway/
-├── backend/
-│   ├── models/
-│   │   ├── Product.js
-│   │   ├── Cart.js
-│   │   └── Order.js
-│   ├── routes/
-│   │   ├── productRoutes.js
-│   │   ├── cartRoutes.js
-│   │   ├── orderRoutes.js
-│   │   └── stripeRoutes.js
-│   ├── server.js
-│   └── package.json
-├── frontend/
-│   ├── src/
-│   │   ├── pages/
-│   │   │   ├── ProductList.js
-│   │   │   ├── CartPage.js
-│   │   │   ├── CheckoutPage.js
-│   │   │   └── OrderConfirmation.js
-│   │   ├── App.js
-│   │   ├── index.js
-│   │   └── styles.css
-│   └── package.json
-└── README.md
-```
-
-## 🔒 Security Notes
-
-- Never commit `.env` files
-- Use environment variables for sensitive data
-- Implement proper authentication in production
-- Use HTTPS in production
-- Validate all user inputs
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-## 🆘 Support
-
-If you encounter any issues:
-1. Check the console for error messages
-2. Verify your environment variables
-3. Ensure both servers are running
-4. Check your Stripe dashboard for payment status
+## 📝 Notes
+- Update the `.env` in `frontend` with your actual Render backend URL after deployment.
+- Both services are free on their respective platforms for hobby/demo use.
 
 ---
-
-**Happy Coding! 🎉** 
+Happy Coding! 
