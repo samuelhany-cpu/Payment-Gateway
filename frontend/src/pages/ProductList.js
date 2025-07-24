@@ -5,7 +5,7 @@ const ProductList = ({ onAddToCart }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}api/products`)
+    axios.get(`${process.env.REACT_APP_API_URL}/api/products`)
       .then(res => setProducts(res.data))
       .catch(err => console.error(err));
   }, []);
